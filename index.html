@@ -27,6 +27,41 @@
     <link rel="stylesheet" href='../scripts/jquery.flipster.min.css'>
     <link rel="icon" href="../images/favicon.png">
     <link rel="stylesheet" href="../skin.css">
+    <style>
+        .boba-anim-left, .boba-anim-right {
+            opacity: 0; 
+        }
+
+        .flex-active-slide .boba-anim-left {
+            animation: bobaZoomOutLeft 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .flex-active-slide .boba-anim-right {
+            animation: bobaZoomOutRight 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes bobaZoomOutLeft {
+            0% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bobaZoomOutRight {
+            0% {
+                transform: translate(50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
     <!-- Extra optional content header -->
 </head>
 <body>
@@ -82,22 +117,27 @@
             <div class="flexslider visible-dir-nav advanced-slider slider text-center" data-options="animation:fade">
                 <ul class="slides">
                     <li data-slider-anima="show-scale" data-time="1000" data-timeline="asc" data-timeline-time="200">
-                        <div class="section-slide">
-                            <div class="bg-cover" style="background-image:url('../images/boba-hero.png')">
-                            </div>
-                            <div class="container">
+                        <div class="section-slide" style="background-color: #ffffff; position: relative; overflow: hidden;">
+                            <!-- Left Edge Overflow Image -->
+                            <img src="../images/boba-left-1-1.png" class="hidden-xs boba-anim-left" style="position: absolute; left: 5%; top: 50%; transform: translate(-50%, -50%); height: 100%; width: auto; z-index: 1; mix-blend-mode: multiply;" alt="Boba glass" />
+                            <!-- Right Edge Overflow Image -->
+                            <img src="../images/boba-right-1-1.png" class="hidden-xs boba-anim-right" style="position: absolute; right: 5%; top: 50%; transform: translate(50%, -50%); height: 115%; width: auto; z-index: 1; mix-blend-mode: multiply;" alt="Matcha boba plate" />
+                            <div class="container" style="position: relative; z-index: 2;">
                                 <div class="container-middle">
                                     <div class="container-inner">
-                                        <img class="anima" src="../images/stars.png" alt="" />
+                                        <!-- Three black stars -->
+                                        <div class="anima" style="font-size: 20px; color: #000; letter-spacing: 5px;">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
                                         <hr class="space s" />
-                                        <p class="text-xl text-black text-color anima">Experience Premium<br />Bubble Tea</p>
+                                        <p class="text-xl text-black text-color anima" style="line-height: 1.1;">Experience Premium<br />Bubble Tea</p>
                                         <hr class="space xs" />
-                                        <p class="anima">
-                                            Crafted with rich flavors, smooth blends, and<br />
+                                        <p class="anima text-black">
+                                            Crafted with rich flavor, smooth blends, and<br />
                                             signature tapioca pearls for perfect sharing.
                                         </p>
                                         <hr class="space s" />
-                                        <a href="#menu" class="btn circle-button btn-border btn-sm anima">Explore Drinks</a>
+                                        <a href="#menu" class="btn circle-button btn-border btn-sm anima" style="color:#000; border-color:#000;">EXPLORE DRINKS</a>
                                         <hr class="space visible-sm" />
                                     </div>
                                 </div>
@@ -105,22 +145,25 @@
                         </div>
                     </li>
                     <li data-slider-anima="show-scale" data-time="1000" data-timeline="asc" data-timeline-time="200">
-                        <div class="section-slide">
-                            <div class="bg-cover" style="background-image:url('../images/boba-hero-2.png')">
-                            </div>
-                            <div class="container">
+                        <div class="section-slide" style="background-color: #ffffff; position: relative; overflow: hidden;">
+                            <img src="../images/boba-right-1-1.png" class="hidden-xs boba-anim-left" style="position: absolute; left: 5%; top: 50%; transform: translate(-50%, -50%); height: 125%; width: auto; z-index: 1; mix-blend-mode: multiply;" alt="Mango boba" />
+                            <img src="../images/boba-left-1-1.png" class="hidden-xs boba-anim-right" style="position: absolute; right: 5%; top: 50%; transform: translate(50%, -50%); height: 115%; width: auto; z-index: 1; mix-blend-mode: multiply;" alt="Boba plate" />
+                            <div class="container" style="position: relative; z-index: 2;">
                                 <div class="container-middle">
                                     <div class="container-inner">
-                                        <img class="anima" src="../images/stars.png" alt="" />
+                                        <!-- Three black stars -->
+                                        <div class="anima" style="font-size: 20px; color: #000; letter-spacing: 5px;">
+                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </div>
                                         <hr class="space s" />
-                                        <p class="text-xl text-black text-color anima">Freshly Made.<br />Perfectly Brewed.</p>
+                                        <p class="text-xl text-black text-color anima" style="line-height: 1.1;">Savor Our<br />Signature Flavors</p>
                                         <hr class="space xs" />
-                                        <p class="anima">
+                                        <p class="anima text-black">
                                             Handcrafted with the finest tea leaves and <br />
                                             natural flavors. An experience in every sip.
                                         </p>
                                         <hr class="space s" />
-                                        <a href="#menu" class="btn circle-button btn-border btn-sm anima">Explore Drinks</a>
+                                        <a href="#menu" class="btn circle-button btn-border btn-sm anima" style="color:#000; border-color:#000;">VIEW MENU</a>
                                         <hr class="space visible-sm" />
                                     </div>
                                 </div>
