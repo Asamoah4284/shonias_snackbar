@@ -1505,7 +1505,12 @@ function isScrollView(t) {
             $("[data-parallax]").each(function () {
                 var bleed_ = $(this).attr("data-bleed");
                 if (isEmpty(bleed_)) bleed_ = 70;
-                $(this).parallax({ bleed: bleed_, positionY: "center" });
+                var posY = $(this).attr("data-position-y");
+                if (isEmpty(posY)) posY = "center";
+                var posX = $(this).attr("data-position-x");
+                var parallaxOpts = { bleed: bleed_, positionY: posY };
+                if (!isEmpty(posX)) parallaxOpts.positionX = posX;
+                $(this).parallax(parallaxOpts);
             });
             $(".section-bg-image,.section-bg-animation,[data-parallax].header-title").each(function (index) {
                 var ken = "";

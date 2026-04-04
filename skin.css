@@ -3311,3 +3311,40 @@ MOBILE - RESPONSIVE
         font-size: 22px;
     }
 }
+
+/* Testimonials parallax — portrait 736×1288: tall section + correct aspect + readable overlay */
+.section-testimonials-parallax {
+    position: relative;
+    min-height: 640px;
+    padding-top: 72px;
+    padding-bottom: 80px;
+}
+
+.section-testimonials-parallax::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(10, 10, 12, 0.36);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.section-testimonials-parallax > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-testimonials-parallax .title-base {
+    margin-bottom: 28px;
+}
+
+@media (max-width: 767px) {
+    .section-testimonials-parallax {
+        min-height: 520px;
+        padding-top: 48px;
+        padding-bottom: 56px;
+    }
+}
